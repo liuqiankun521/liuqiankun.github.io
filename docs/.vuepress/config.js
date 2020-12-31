@@ -62,7 +62,14 @@ module.exports = {
                     message: '有新内容更新啦~',
                     buttonText: '立即获取新内容'
                 }
-            }]
+            }],
+            ['@vssue/vuepress-plugin-vssue', {
+                platform: 'github-v4',
+                owner: 'liuqiankun521',
+                repo: 'liuqiankun521.github.io',
+                clientId: '2a7903f1ae20edc0cb72',
+                clientSecret: 'c5649a0ae42e1931b03f78d695b7af92b454c316',
+            },]
         ]
     }
 }
