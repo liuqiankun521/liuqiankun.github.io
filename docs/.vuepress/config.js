@@ -27,7 +27,7 @@ module.exports = {
         searchMaxSuggestions: 10,
 
         // 最后更新时间
-        lastUpdated: '上次更新:',
+        lastUpdated: '上次更新',
 
         // 上 / 下一篇链接
         nextLinks: true,
