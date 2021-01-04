@@ -1,7 +1,6 @@
 module.exports =  [
-    { text: 'Home', link: '/' },
-    { text: 'Guide', link: '/guide/' },
-    { text: 'External', link: 'https://www.baidu.com' },
+    { text: '主页', link: '/' },
+    { text: '百度', link: 'https://www.baidu.com' },
     { text: 'JavaScript', link: '/javascript/' },
     { text: 'Vue',
         items: [
