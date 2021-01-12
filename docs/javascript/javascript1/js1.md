@@ -131,8 +131,51 @@ import '@/directive/permission.js'
 ```
 
 
+## 限制element组件只可以选今天昨天
+```js
 
-
+         pickerOptions: {
+           shortcuts: [{
+             text: '今天',
+             onClick(picker) {
+               picker.$emit('pick', new Date());
+             }
+           }],
+           disabledDate (time) {
+             let _now = Date.now();
+             let num = 2;
+             let timeT = num * 24 * 60 * 60 * 1000;
+             let days = _now - timeT;
+             return time.getTime() > _now || time.getTime() < days;
+           }
+         }
+```
+## 解决表格数据分页问题
+```HTML
+        <el-pagination v-if="pageshow" @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                       :current-page="current" :page-sizes="[10, 15, 30, 50]" :page-size="size"
+                       :total="total" layout="total, sizes, prev, pager, next, jumper">
+        </el-pagination>
+```
+```js 
+  export default { 
+    data() {
+        return {
+           pageshow:true,  
+        }
+    },
+    methods: {
+              search() { //search要绑定查询按钮上
+                this.current = 1
+                this.pageshow = false
+                this.getlist() //获取接口数据
+                this.$nextTick(() => {
+                this.pageshow = true
+                })
+              },
+    }
+}
+```
 ## 返回上一页
 ```js 
   export default {

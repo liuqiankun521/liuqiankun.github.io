@@ -16,7 +16,6 @@ console.log("%c vue-press %c v".concat("1.0.0-beta.1", " ").concat("dd10c50", " 
 ```js
 console.log(window.decodeURIComponent(window.location.search.substr(1).match(new RegExp("(^|&)code=([^&]*)(&|$)", "i"))?.[2]));
 ```
-### 测试标签
 
 ## 立即调用函数表达式(IIFE)
 [IIFE](https://developer.mozilla.org/zh-CN/docs/Glossary/%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F) <Badge text="IIFE"/>
@@ -129,10 +128,25 @@ main.js 导入
 ```js
 import '@/directive/permission.js'
 ```
+## 限制element组件只可以选今天昨天
+```js
 
-
-
-
+         pickerOptions: {
+           shortcuts: [{
+             text: '今天',
+             onClick(picker) {
+               picker.$emit('pick', new Date());
+             }
+           }],
+           disabledDate(time){
+             let _now = Date.now();
+             let num = 2;
+             let timeT = num * 24 * 60 * 60 * 1000;
+             let days = _now - timeT;
+             return time.getTime() > _now || time.getTime() < days;
+           }
+         }
+```
 ## 返回上一页
 ```js 
   export default {
