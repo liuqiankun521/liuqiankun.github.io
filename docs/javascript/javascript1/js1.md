@@ -151,14 +151,14 @@ import '@/directive/permission.js'
          }
 ```
 ## input输入框校验
-```
-只允许输入数字(整数：小数点不能输入)
+```html
+<!--只允许输入数字(整数：小数点不能输入)-->
 <input type="number" name="chinese" maxlength="5" οnkeyup="value=value.replace(/[^\d]/g,'')" >
-允许输入小数(两位小数)
+<!--允许输入小数(两位小数)-->
 <input type="number"  name="chinese" maxlength="5" οnkeyup="value=value.replace(/^\D*(\d*(?:\.\d{0,2})?).*$/g, '$1')" >
-允许输入小数(一位小数)
+<!--允许输入小数(一位小数)-->
 <input type="number" name="chinese" maxlength="5" οnkeyup="value=value.replace(/^\D*(\d*(?:\.\d{0,1})?).*$/g, '$1')" >
-开头不能为0，且不能输入小数
+<!--开头不能为0，且不能输入小数-->
 <input type="number" name="chinese" maxlength="5" οnkeyup="value=value.replace(/[^\d]/g,'').replace(/^0{1,}/g,'')" >
 ```
 ## 解决表格数据分页问题
