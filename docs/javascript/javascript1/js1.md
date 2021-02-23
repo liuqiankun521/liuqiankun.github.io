@@ -160,7 +160,10 @@ import '@/directive/permission.js'
 <input type="number" name="chinese" maxlength="5" οnkeyup="value=value.replace(/^\D*(\d*(?:\.\d{0,1})?).*$/g, '$1')" >
 <!--开头不能为0，且不能输入小数-->
 <input type="number" name="chinese" maxlength="5" οnkeyup="value=value.replace(/[^\d]/g,'').replace(/^0{1,}/g,'')" >
+<!--vue element 的输入框input限制只可以输入整数 不能输入拼音符号小数点-->
+<el-input onKeypress="return(/[\d]/.test(String.fromCharCode(event.keyCode)))"></el-input>
 ```
+
 ## 解决表格数据分页问题
 ```HTML
         <el-pagination v-if="pageshow" @size-change="handleSizeChange" @current-change="handleCurrentChange"
@@ -186,6 +189,38 @@ import '@/directive/permission.js'
               },
     }
 }
+```
+## JSON.stringify()的妙用判断数组是否包含某对象，或者判断对象是否相等
+```js 
+//判断数组是否包含某对象
+let data = [
+    {name:'echo'},
+    {name:'听风是风'},
+    {name:'天子笑'},
+    ],
+    val = {name:'天子笑'};
+JSON.stringify(data).indexOf(JSON.stringify(val)) !== -1;//true
+
+//判断两数组/对象是否相等
+let a = [1,2,3],
+    b = [1,2,3];
+JSON.stringify(a) === JSON.stringify(b);//true
+
+
+
+
+//深拷贝
+function deepClone(data) {
+    let _data = JSON.stringify(data),
+        dataClone = JSON.parse(_data);
+    return dataClone;
+};
+//测试
+let arr = [1,2,3],
+    _arr = deepClone(arr);
+arr[0] = 2;
+console.log(arr,_arr)//[2,2,3]  [1,2,3]
+
 ```
 ## 返回上一页
 ```js 
