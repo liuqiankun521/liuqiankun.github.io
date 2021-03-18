@@ -165,3 +165,8 @@ import '@/directive/permission.js'
 
     }
 ```
+## 解决跨域
+```text
+最前面有个空格，等于号后边是新建文件夹目录   最前面是谷歌创建快捷方式路径
+--args --disable-web-security --user-data-dir=D:\chrome
+```
