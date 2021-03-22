@@ -147,6 +147,12 @@ import '@/directive/permission.js'
            }
          }
 ```
+## 解决跨域问题
+``` text
+浏览器新建快捷浏览浏览器  D:\chrome   --args --disable-web-security --user-data-dir=  这个加浏览器属性 目标里边最后面  先打个空格
+--args --disable-web-security --user-data-dir=D:\chrome
+```
+
 ## 返回上一页
 ```js 
   export default {
@@ -165,8 +171,4 @@ import '@/directive/permission.js'
 
     }
 ```
-## 解决跨域
-```text
-最前面有个空格，等于号后边是新建文件夹目录   最前面是谷歌创建快捷方式路径
---args --disable-web-security --user-data-dir=D:\chrome
-```
+
