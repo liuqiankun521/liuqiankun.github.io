@@ -222,6 +222,11 @@ arr[0] = 2;
 console.log(arr,_arr)//[2,2,3]  [1,2,3]
 
 ```
+
+``` text
+浏览器新建快捷浏览浏览器  D:\chrome   --args --disable-web-security --user-data-dir=  这个加浏览器属性 目标里边最后面  先打个空格
+--args --disable-web-security --user-data-dir=D:\chrome
+```
 ## 返回上一页
 ```js 
   export default {
