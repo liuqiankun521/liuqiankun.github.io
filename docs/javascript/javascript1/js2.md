@@ -54,3 +54,18 @@ demo: [ {validator: demoID, trigger: 'blur'}],
             .map((_, i) => data.slice(i * n, (i + 1) * n));
         },
 ```
+## input限制输入
+``` html
+<el-input @input="(e) => (param.jointTenancyPeriod = isnumber20(e))"></el-input>
+```
+``` js
+      isnumber20(val) {
+            val = val.replace(/[^0-9]/gi, "");
+            // 此处还可以限制位数以及大小
+            if (val > 20) {
+              return 20;
+            } else {
+              return val;
+            }
+          },
+```
