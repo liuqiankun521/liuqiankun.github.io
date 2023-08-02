@@ -1,7 +1,6 @@
 // 侧边栏总控文件
 
 module.exports = {
-
-    '/javascript/': require('../javascript/sidebar'),
-
+    '/views/': require('../views/sidebar'),
+    // '/javascript/': require('../javascript/sidebar'),
 }
