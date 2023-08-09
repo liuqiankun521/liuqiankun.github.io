@@ -69,6 +69,10 @@ demo: [ {validator: demoID, trigger: 'blur'}],
             }
           },
 ```
+## 校验是否为数字
+```js
+  const isTrue = !isNaN(parseFloat(value)) && isFinite(value);
+```
 ## 常用正则表达式
 ``` html
 一、校验数字的表达式
